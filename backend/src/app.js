@@ -1,13 +1,22 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const userController = require('./controllers/userController');
+const jwtController = require('./controllers/jwtController'); // Import jwtController
+
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.use(bodyParser.json());
+
+// User route
+app.post('/api/users', userController.createUser);
+
+// JWT token issuance route
+app.post('/api/token', jwtController.issueToken);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal server error' });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-module.exports = app; // Export for testing
+module.exports = app; // Export the app for testing
