@@ -1,0 +1,21 @@
+{
+  "name": "mochachaitesting",
+  "version": "1.0.0",
+  "description": "Introduction to Mocha and Chai testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha backend/test/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
+  }
+}
