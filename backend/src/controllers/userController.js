@@ -9,6 +9,7 @@ async function createUser(req, res) {
     }
   
     const { username, email } = req.body;
+    console.log("userController.js kertoo: "+username+" "+email);
   
     // Validate the email using the utility function
     if (!isValidEmail(email)) {
